@@ -1,0 +1,7 @@
+<%= form_for @image do |f| %>
+  <%= f.label :name, class: "form text" %><br>
+  <%= f.text_field :name, class: "form field" %><br>
+  <%= f.label :category, class: "form text" %><br>
+  <%= f.text_field :category, class: "form field" %><br>
+  <%= f.submit 'Upload', class: "form btn" %>
+<% end %>

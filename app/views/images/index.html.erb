@@ -1,9 +1,11 @@
 <% if @images.any? %>
   <% @images.each do |image| %>
-    <div class="image name"><%= image.name %></div><br>
+    <%= link_to image.name, image_path(image), class: "image name" %><br>
     <div class="image category">Category: <%= image.category %></div>
-  <%end%>
-<%else%>
+    <%= link_to "Edit", edit_image_path(image), class: "image link" %>
+    <%= link_to "Remove", image_path(image), method: :delete, class: "image link" %>
+  <% end %>
+<% else %>
   <div class="text">No images have been uploaded yet :(</div>
-<%end%>
-<a href="#">Upload an image</a>
+<% end %>
+<%= link_to "Upload an image", new_image_path, class: "image link" %>
