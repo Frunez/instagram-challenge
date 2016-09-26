@@ -1,0 +1,9 @@
+<% if @images.any? %>
+  <% @images.each do |image| %>
+    <div class="image name"><%= image.name %></div><br>
+    <div class="image category">Category: <%= image.category %></div>
+  <%end%>
+<%else%>
+  <div class="text">No images have been uploaded yet :(</div>
+<%end%>
+<a href="#">Upload an image</a>
