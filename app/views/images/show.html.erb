@@ -1,3 +1,18 @@
 <p class="image name"><%= @image.name %></p><br>
-<p class="image category"><%= 'Category: ' + @image.category %></p>
-<%= form_for @comment, :url => { :controller => "comment", :action => "create" }, :html => {:method => :post} do |f| %>
+<p class="image category"><%= 'Category: ' + @image.category %></p><br>
+<%= link_to "Edit", edit_image_path(@image), class: "image link" %>
+<%= link_to "Remove", image_path(@image), method: :delete, class: "image link" %><br>
+<p>
+  <strong>Comments</strong>
+    <div id="comments">
+        <% render partial: @image.comments %>
+    </div>
+    <%= simple_form_for [@image, Comment.new] do |f| %>
+      <p>
+        <%= f.input :body, placeholder: 'Your comment' %>
+      </p>
+      <p></p>
+      <%= f.submit "Post", class: "btn btn-primary" %></p>
+    <% end %>
+
+</p>
