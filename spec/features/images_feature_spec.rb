@@ -62,13 +62,15 @@ feature 'images' do
     end
   end
 
-  context 'deleting images'
+  context 'deleting images' do
 
     before { Image.create(name: 'Octopus', category: 'Sea') }
 
     scenario 'removes image when user clicks remove' do
       visit '/images'
       click_link 'Remove'
-      expect(page).not_to have_content 'Image successfully removed'
+      expect(page).not_to have_content 'Octopus'
+      expect(page).to have_content 'Image successfully removed'
     end
+  end
 end

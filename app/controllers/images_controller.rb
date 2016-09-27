@@ -1,4 +1,5 @@
 class ImagesController < ApplicationController
+
   def index
     @images = Image.all
   end
@@ -32,9 +33,12 @@ class ImagesController < ApplicationController
     @image.destroy
     flash[:notice] = 'Image successfully removed'
     redirect_to "/images"
+  end
+
   private
 
   def image_params
     params.require(:image).permit(:name, :category)
   end
+
 end
