@@ -9,7 +9,24 @@
   </head>
 
   <body>
-    <%= notice %>
-    <%= yield %>
+    <div class="background">
+      <div id="main-container" class="container">
+        <div class="row">
+            <div class="navbar navbar-full navbar-fixed-top navbar-dark">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <%= link_to "DEPICTOR", images_path, class: "navbar-brand" %>
+                </div>
+              </div>
+            </div>
+            <p class="text notice">
+              <p class="notice"><%= notice %></p>
+              <p class="alert"><%= alert %></p>
+            </p>
+            <p class="space"></p>
+            <%= yield %>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

@@ -31,6 +31,14 @@ feature 'images' do
       expect(page).to have_content 'Cat'
       expect(current_path).to include '/images/'
     end
+    scenario 'does not let you submit an empty field' do
+      visit '/images'
+      click_link 'Upload an image'
+      fill_in 'Name', with: ''
+      click_button 'Upload'
+      expect(page).to have_content 'Don\'t be lazy, give your image a name'
+      expect(page).not_to have_css 'strong', text: ''
+    end
   end
 
   context 'viewing images' do
@@ -52,6 +60,7 @@ feature 'images' do
 
     scenario 'lets a user edit an image' do
       visit '/images'
+      click_link 'Car'
       click_link 'Edit'
       fill_in 'Name', with: 'Lexus'
       fill_in 'Category', with: 'Automobiles'
@@ -62,13 +71,16 @@ feature 'images' do
     end
   end
 
-  context 'deleting images'
+  context 'deleting images' do
 
     before { Image.create(name: 'Octopus', category: 'Sea') }
 
     scenario 'removes image when user clicks remove' do
       visit '/images'
+      click_link 'Octopus'
       click_link 'Remove'
-      expect(page).not_to have_content 'Image successfully removed'
+      expect(page).to have_content 'Image successfully removed'
+      expect(page).not_to have_content 'Octopus'
     end
+  end
 end

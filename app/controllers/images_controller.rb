@@ -9,11 +9,17 @@ class ImagesController < ApplicationController
 
   def create
     @image = Image.create(image_params)
-    redirect_to "/images/#{@image.id}"
+    if @image.save
+      redirect_to "/images/#{@image.id}"
+    else
+      flash[:alert] = 'Don\'t be lazy, give your image a name'
+      render 'new'
+    end
   end
 
   def show
     @image = Image.find(params[:id])
+    @comment = Comment.new
   end
 
   def edit
@@ -32,6 +38,8 @@ class ImagesController < ApplicationController
     @image.destroy
     flash[:notice] = 'Image successfully removed'
     redirect_to "/images"
+  end
+
   private
 
   def image_params

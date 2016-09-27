@@ -1,7 +1,17 @@
-<%= form_for @image do |f| %>
-  <%= f.label :name, class: "form text" %><br>
-  <%= f.text_field :name, class: "form field" %><br>
-  <%= f.label :category, class: "form text" %><br>
-  <%= f.text_field :category, class: "form field" %><br>
-  <%= f.submit 'Upload', class: "form btn" %>
-<% end %>
+<div id="main-container" class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <%= form_for @image do |f| %>
+        <div class="form-group">
+          <%= f.label :name, class: "form text" %><br>
+          <%= f.text_field :name, class: "form-control" %><br>
+          <%= f.label :category, class: "form text" %><br>
+          <%= f.text_field :category, class: "form-control" %><br>
+          <%= f.submit 'Upload', class: "btn btn-primary btn-xs" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>

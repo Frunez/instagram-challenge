@@ -1,2 +1,31 @@
-<p class="image name"><%= @image.name %></p><br>
-<p class="image category"><%= 'Category: ' + @image.category %></p>
+<div id="main-container" class="container">
+  <div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <strong class="image name"><%= @image.name %></strong><br>
+      <p class="image category"><%= 'Category: ' + @image.category %></p>
+      <%= link_to "Edit", edit_image_path(@image), class: "btn btn-info btn-xs" %>
+      <%= link_to "Remove", image_path(@image), method: :delete, class: "btn btn-danger btn-xs" %>
+      <p class="form">
+        <%= form_for [@image, @comment] do |f| %>
+          <%= f.label :text, 'Comment', class: "form text" %>
+          <%= f.text_field :text, class: "form field" %>
+          <%= f.submit 'Post', class: "btn btn-primary btn-xs" %>
+        <% end %>
+      </p>
+      <p>
+        <% if @image.comments.any? %>
+          <% @image.comments.each do |comment| %>
+            <p class="comment text">
+              <%= comment.text %><br>
+              <%= time_ago_in_words(comment.created_at) %> ago
+            </p>
+          <% end %>
+        <% else %>
+          <div class="comment text">Be the first to comment :)</div>
+        <% end %>
+      </p>
+    </div>
+    <div class="col-md-4"></div>
+  </div>
+</div>
