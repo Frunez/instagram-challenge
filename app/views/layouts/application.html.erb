@@ -11,22 +11,24 @@
   <body>
     <div class="background">
       <div id="main-container" class="container">
-        <div class="row">
-            <div class="navbar navbar-full navbar-fixed-top navbar-dark">
+        <p class="space"></p>
+            <div class="navbar navbar-fixed-top">
               <div class="container-fluid">
                 <div class="navbar-header">
-                  <%= link_to "DEPICTOR", images_path, class: "navbar-brand" %>
+                  <%= link_to "DEPICTORAMA", images_path, class: "navbar-brand" %>
+                  <i class="menu-icon"><%= material_icon.menu.md_36 %></i>
+                  <%= link_to "Upload image", new_image_path, class: "navbar-right" %>
+                  </div>
                 </div>
               </div>
             </div>
-            <p class="text notice">
-              <p class="notice"><%= notice %></p>
-              <p class="alert"><%= alert %></p>
-            </p>
-            <p class="space"></p>
+            <div class="space"></div>
+              <% if flash[:notice] %>
+                <p class="alert alert-info"><%= notice %></p>
+              <% elsif flash[:alert]%>
+                <p class="alert alert-danger"><%= alert %></p>
+              <% end %>
             <%= yield %>
-        </div>
-      </div>
     </div>
   </body>
 </html>

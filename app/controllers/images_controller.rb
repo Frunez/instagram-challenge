@@ -1,6 +1,7 @@
 class ImagesController < ApplicationController
   def index
     @images = Image.all
+    @upload = "upload "
   end
 
   def new

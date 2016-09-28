@@ -12,6 +12,7 @@
  *
  *= require_tree .
  *= require_self
+ *= require material_icons
  */
  // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
  @import "bootstrap-sprockets";
@@ -25,21 +26,37 @@
 
 .navbar {
   margin-top: 25px;
-  opacity: 0.7;
+  background-color: rgba(130, 70, 255, 0.8);
 }
 
 .navbar-header {
-  float: none;;
-  text-align: center;
-  width: 100%;
+  // margin-top: 17px;
+  // padding: 15px;
+  // float: none;
+  // text-align: center;
+  // width: 100%;
+  color: white;
 }
 
 .navbar-brand {
-  float: none;
+  transform: translateX(-50%);
+  left: 50%;
+  position: absolute;
   color: black;
+  float: none;
   font-size: 25px;
   font-weight: bolder;
-  font-kerning: auto;
+}
+
+.menu-icon {
+  left: 50%;
+  position: absolute;
+  float: right;
+  margin-top: -8px;
+}
+
+.navbar-brand:hover {
+  color: rgb(200, 200, 255);
 }
 
 .space {
