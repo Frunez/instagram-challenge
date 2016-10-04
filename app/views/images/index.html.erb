@@ -10,7 +10,7 @@
           <!--  main content -->
           <table class="table table-striped">
           <% if @images.any? %>
-            <% @images.each do |image| %>
+            <% @images.reverse_each do |image| %>
               <p class="row">
                 <div class="well">
                   <%= link_to image.name, image_path(image), class: "image name"%><br>

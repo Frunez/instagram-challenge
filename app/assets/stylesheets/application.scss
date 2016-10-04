@@ -18,23 +18,29 @@
  @import "bootstrap-sprockets";
  @import "bootstrap";
 
-.background {
-  background-image: url('/Flowers.jpg');
+// Application and navigation bar styling
+
+.full {
+  background-image: url('/Flowers bg.jpg');
   background-position: center;
   background-size: auto;
+  background-color: rgba(130, 70, 255, 0.5);
+}
+
+.well {
+  background-color: rgba(255, 255, 255, 0.8)
+}
+
+.form-group {
+  text-align: center;
 }
 
 .navbar {
   margin-top: 25px;
-  background-color: rgba(130, 70, 255, 0.8);
+  background-color: rgba(0, 0, 0, 0.8);
 }
 
 .navbar-header {
-  // margin-top: 17px;
-  // padding: 15px;
-  // float: none;
-  // text-align: center;
-  // width: 100%;
   color: white;
 }
 
@@ -42,23 +48,57 @@
   transform: translateX(-50%);
   left: 50%;
   position: absolute;
-  color: black;
+  color: rgba(255, 255, 255, 0.7);
   float: none;
   font-size: 25px;
   font-weight: bolder;
 }
 
 .menu-icon {
-  left: 50%;
+  transform: translateX(-50%);
+  transform: translateY(35%);
+  left: 93%;
   position: absolute;
   float: right;
   margin-top: -8px;
+  cursor: pointer;
+  color: white;
+}
+
+.dropdown-menu {
+  background-color: rgba(0, 0, 0, 0.8);
+  color: rgb(255, 255, 255);
+}
+
+.dropdown-menu li>a {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.dropdown-menu .divider {
+  background-color: black;
+}
+
+.photo {
+  color: white;
+  transform: translateX(50%);
+  transform: translateY(35%);
+  right: 93%;
+  float: none;
+  position: absolute;
 }
 
 .navbar-brand:hover {
-  color: rgb(200, 200, 255);
+  color: rgb(255, 255, 255);
 }
 
 .space {
   height: 50px;
+}
+
+// Individual image show
+
+.time-posted {
+  line-height: 0.5px;
+  font-size: 10px;
+  color: rgba(130, 70, 255, 0.8);
 }
