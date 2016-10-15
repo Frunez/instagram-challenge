@@ -10,21 +10,29 @@
 
   <body>
     <div class="full">
+      <% if flash[:notice] %>
+        <p class="alert alert-success"><%= notice %></p>
+      <% elsif flash[:alert]%>
+        <p class="alert alert-danger"><%= alert %></p>
+      <% end %>
         <div id="main-container" class="container">
           <p class="space"></p>
               <div class="navbar navbar-fixed-top">
                 <div class="container-fluid">
                   <div class="navbar-header">
                     <%= link_to "DEPICTORAMA", images_path, class: "navbar-brand" %>
-                    <%= link_to material_icon.add_a_photo.md_24, new_image_path, class: "photo" %>
-                    <a class="menu-icon" data-toggle="dropdown" ><%= material_icon.menu.md_36 %></a>
+                    <%= link_to material_icon.add_a_photo.md_24, new_image_path, class: "photo", id: "upload-an-image" %>
+                    <a class="menu-icon" data-toggle="dropdown" id="menu" ><%= material_icon.menu.md_36 %></a>
                        <ul class="dropdown-menu dropdown-menu-right">
-                         <li><%= link_to "Sign in", new_user_session_path%></li>
-                         <li><%= link_to "Sign out"%></li>
-                         <li role="separator" class="divider"></li>
-                         <li><%= link_to "profile"%></li>
-                         <li role="separator" class="divider"></li>
-                         <li><%= link_to "profile"%></li>
+                         <% if !user_signed_in? %>
+                           <li><%= link_to "Sign in", new_user_session_path%></li>
+                           <li><%= link_to "Sign up", new_user_registration_path%></li>
+                        <% else %>
+                           <li role="separator" class="divider"></li>
+                           <li><%= link_to "profile"%></li>
+                           <li role="separator" class="divider"></li>
+                           <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+                        <% end %>
                        </ul>
                    </div><!-- /.container-fluid -->
 
@@ -32,11 +40,6 @@
                   </div>
                 </div>
               <div class="space"></div>
-                <% if flash[:notice] %>
-                  <p class="alert alert-info"><%= notice %></p>
-                <% elsif flash[:alert]%>
-                  <p class="alert alert-danger"><%= alert %></p>
-                <% end %>
               <%= yield %>
         </div>
       </div>

@@ -2,10 +2,10 @@ require 'rails_helper'
 
 feature 'images' do
   context 'no images have been added' do
-    scenario 'should display a prompt to add upload an image' do
-      visit 'images'
+    scenario 'should display a prompt to add an image' do
+      visit '/images'
       expect(page).to have_content 'No images have been uploaded yet :('
-      expect(page).to have_link 'Upload an image'
+      expect(page).to have_link 'upload-an-image'
     end
   end
 
@@ -25,7 +25,7 @@ feature 'images' do
   context 'creating images' do
     scenario 'prompts user to fill out a form, then displays the new image' do
       visit '/images'
-      click_link 'Upload an image'
+      click_link 'upload-an-image'
       fill_in 'Name', with: 'Cat'
       click_button 'Upload'
       expect(page).to have_content 'Cat'
@@ -33,7 +33,7 @@ feature 'images' do
     end
     scenario 'does not let you submit an empty field' do
       visit '/images'
-      click_link 'Upload an image'
+      click_link 'upload-an-image'
       fill_in 'Name', with: ''
       click_button 'Upload'
       expect(page).to have_content 'Don\'t be lazy, give your image a name'

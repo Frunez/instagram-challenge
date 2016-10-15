@@ -91,9 +91,29 @@
   color: rgb(255, 255, 255);
 }
 
+.alert {
+  text-align: center;
+  padding: 2.5px;
+  border: 0px;
+  border-radius: 0px;
+}
+
+.alert-success {
+  background-color: rgba(50, 100, 60, 0.8);
+  border-color: transparent;
+  color: white;
+}
+
+.alert-danger {
+  background-color: rgba(100, 40, 50, 0.8);
+  border-color: transparent;
+  color: white;
+}
+
 .space {
   height: 50px;
 }
+
 
 // Individual image show
 
@@ -101,4 +121,22 @@
   line-height: 0.5px;
   font-size: 10px;
   color: rgba(130, 70, 255, 0.8);
+}
+
+.btn {
+  float: right;
+  border: 0px;
+  border-radius: 0px;
+}
+
+.btn-info {
+  background-color: rgba(130, 70, 255, 0.5);
+  border-color: transparent;
+  color: white;
+}
+
+.btn-danger {
+  background-color: rgba(130, 70, 255, 0.5);
+  border-color: transparent;
+  color: white;
 }
