@@ -1,23 +1,42 @@
-Instagram Challenge
-===================
+Depictorama
+===========
 
-Instructions
--------
-* Challenge time: one weekend
-* Feel free to use Google, your notes, books, etc., but work on your own
-* If you refer to the solution of another coach or student, please put a link to that in your README
-* If you have a partial solution, **still check in a partial solution**
-* You must submit a pull request to this repo with your code by 9am Monday morning
+Instagram clone-ish
+------
 
-Task
+A ruby rails web application where you can upload images which are displayed on main page, people can click on said images view them and make comments like 'Aw, so cute!' (may add smiley face generator for giggles).
+
+This application uses Rails 5.0.1 and Ruby 2.4.0 as well as Rspec and Capybara for testing.
+
+List of features
 -----
+implemented: :white_check_mark:  not implemented yet: :no_entry_sign:
 
-Build Instagram: Simple huh!
+* Add image (name and category) :white_check_mark:
+* Upload image :no_entry_sign:
+* Hompage with list of uploaded images :white_check_mark:
+* Sign up :white_check_mark:
+* O-auth sign up :no_entry_sign:
+* Sign in & sign out :white_check_mark:
+* User profile :no_entry_sign:
+* Viewing other user's uploads :no_entry_sign:
+* View images by category :no_entry_sign:
 
-Bonus if you can write your own set of sensible user stories!
+extra features:
 
-As usual please start by forking this repo. After cloning your fork and cd'ing into it, you'll need to [initialize a Rails app in the current directory](http://blog.jasonmeridth.com/posts/create-rails-application-in-current-directory/).
+* Auto emojifier :no_entry_sign:
+* Video upload :no_entry_sign:
+* Featured images :no_entry_sign:
+* :thumbsup: images :no_entry_sign:
+* Ordering images by most liked, most recent, most viewed etc. :no_entry_sign:
 
-Your challenge is to build Instagram using Rails. You'll need **users** who can post **pictures**, write **comments** on pictures and **like** a picture. Style it like Instagram's website (or more awesome).
-
-Bonus if you can add filters!
+How to use
+--------
+* Step uno: fork this repository then $git clone git@github.com:<YOUR_USERNAME>/instagram-challenge.git
+* Step two: cd to file and $ bundle install
+* Step three: turn kettle on and wait 2-5 minutes
+* Step four: get those databases up and running $ rake db:create
+* Step five: $ rake db:migrate
+* Step six: you should now be ready to start ze server $ rails s
+* Step seven: go to localhost:3000 on browser
+* Step eight: click stuff
